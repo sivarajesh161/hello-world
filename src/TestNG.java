@@ -14,12 +14,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 
 public class TestNG {
+	 public WebDriver driver;
   @Test(groups= {"demo1"})
   public void f() throws Exception {
 	  System.out.println("@test in alplhabetical order 'f' priority z)");
 	  //WebDriverWait wait = new WebDriverWait(driver, 10);
-	//System.setProperty("webdriver.opera.driver","C:\\Users\\Siva Rajesh\\Desktop\\operadriver.exe");
-			//WebDriver driver=new OperaDriver();
+	  //this.driver=driver;
+	System.setProperty("webdriver.opera.driver","C:\\Users\\Siva Rajesh\\Desktop\\operadriver.exe");
+			WebDriver driver1=new OperaDriver();
 	//System.setProperty("webdriver.gecko.driver","C:\\Users\\Siva Rajesh\\Desktop\\geckodriver.exe");
 			//WebDriver driver=new FirefoxDriver();
 	//System.setProperty("webdriver.edge.driver", "C:\\Users\\Siva Rajesh\\Desktop\\msedgedriver.exe");
@@ -30,29 +32,30 @@ public class TestNG {
 	  //hromeOptions.setBinary("C:\\Users\\Siva Rajesh\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 
 	  //ChromeDriver driver = new ChromeDriver(chromeOptions);
-	  ChromeOptions chromeOptions= new ChromeOptions();
-	  chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-	  System.setProperty("webdriver.chrome.driver","C:\\Users\\Siva Rajesh\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+	  //ChromeOptions chromeOptions= new ChromeOptions();
+	  ///chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
+	  //System.setProperty("webdriver.chrome.driver","C:\\Users\\Siva Rajesh\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 
-	  ChromeDriver driver = new ChromeDriver(chromeOptions);
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+	  //ChromeDriver driver = new ChromeDriver(chromeOptions);
+			WebDriverWait wait = new WebDriverWait(driver1, 20);
 		
 		//driver.manage().window().maximize();
-		driver.get("https://www.yahoo.com/");
-		driver.findElement(By.xpath("//*[@id=\'ybar-sbq\']")).sendKeys("warsaw people");
-		driver.findElement(By.xpath("//*[@id=\'ybar-search\']")).click();
+		driver1.get("https://www.yahoo.com/");
+		driver1.findElement(By.xpath("//*[@id=\'ybar-sbq\']")).sendKeys("warsaw people");
+		driver1.findElement(By.xpath("//*[@id=\'ybar-search\']")).click();
 		Thread.sleep(4000);
-		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/ol/li[1]/div/div[1]/ul/li[2]/a")).click();
+		driver1.findElement(By.xpath("/html/body/div[1]/div[2]/div/ol/li[1]/div/div[1]/ul/li[2]/a")).click();
 		//WebDriverWait wait = new WebDriverWait(driver, 10);
-		Thread.sleep(4000);
-		wait.until(ExpectedConditions.urlContains("polish+people"));
+		//Thread.sleep(4000);
+		//wait.until(ExpectedConditions.urlContains("polish+people"));
 	
-		String url =driver.getCurrentUrl();
+		String url =driver1.getCurrentUrl();
 		System.out.println(url);
-		driver.manage().window().fullscreen();
-		Actions act = new Actions(driver);
+		driver1.manage().window().fullscreen();
+		Actions act = new Actions(driver1);
 		
 		act.sendKeys(Keys.ESCAPE).build().perform();
+		driver1.close();
 		
 		
 		
@@ -68,6 +71,7 @@ public class TestNG {
 
   @AfterMethod
   public void afterMethod() {
+	  //driver.close();
 	  System.out.println("this is executed after method");
   }
   @Test(groups= {"demo"})
