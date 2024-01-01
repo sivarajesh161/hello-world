@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
@@ -15,6 +16,7 @@ public class Sample1 {
 
 	public static void main(String[] args) throws Exception
 	{
+		//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 		System.out.println("Hi How are you?");
 		//C:\\Users\\Siva Rajesh\\Desktop\\msedgedriver.exe
 		//System.setProperty("webdriver.edge.driver", "C:\\Users\\Siva Rajesh\\Desktop\\msedgedriver.exe");
@@ -23,10 +25,10 @@ public class Sample1 {
 		//WebDriver driver = new ChromeDriver();
 		//System.setProperty("webdriver.gecko.driver","C:\\Users\\Siva Rajesh\\Desktop\\geckodriver.exe");
 		//WebDriver driver=new FirefoxDriver();
-		//System.setProperty("webdriver.opera.driver","C:\\Users\\Siva Rajesh\\Desktop\\operadriver.exe");
-		//WebDriver driver=new OperaDriver();
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\Siva Rajesh\\Desktop\\chromedriver.exe");
-		WebDriver driver=new ChromeDriver();
+		System.setProperty("webdriver.opera.driver","C:\\Users\\Siva Rajesh\\Desktop\\operadriver.exe");
+		WebDriver driver=new OperaDriver();
+		//System.setProperty("webdriver.chrome.driver","C:\\Users\\Siva Rajesh\\Desktop\\chromedriver.exe");
+		//WebDriver driver=new ChromeDriver();
 		
 		driver.manage().window().maximize();
 		driver.get("https://www.yahoo.com/");
@@ -43,7 +45,8 @@ public class Sample1 {
 		
 		
 		Thread.sleep(4000);
-		driver.close();
+		driver.quit();
+		
 		
 		
 
